@@ -1,0 +1,11 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    volumes:
+      - ./api:/api
+    ports:
+      - 5100:5000
+    stdin_open: true
+    tty: true
