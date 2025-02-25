@@ -225,29 +225,35 @@ def generate_steered_image(number, color):
     color_mnist_cb_dec = create_cb_dec()
     color_mnist_cb_dec.eval()
 
-    z = torch.randn(10, 64)
+    samples = 25
+
+    z = torch.randn(samples, 64)
     number_prob = [1.0e-10 for i in range(10)]
     number_prob[number] = 0.9999999991
     color_prob_red = [0.9, 0.1] if color == "red" else [0.1, 0.9]
     color_prob_green = [0.9, 0.1] if color == "green" else [0.1, 0.9]
 
     probs = [
-        torch.tensor([number_prob for i in range(10)]), 
-        torch.tensor([color_prob_red for i in range(10)]),
-        torch.tensor([color_prob_green for i in range(10)])
+        torch.tensor([number_prob for i in range(samples)]), 
+        torch.tensor([color_prob_red for i in range(samples)]),
+        torch.tensor([color_prob_green for i in range(samples)])
     ]
 
     with torch.no_grad():
         generated_images = color_mnist_cb_dec(z, probs=probs)
 
-    fig, axes = plt.subplots(1, len(generated_images), figsize=(len(generated_images), 2))
+    fig, axes = plt.subplots(5, 5, figsize=(10, 10))
+    axes = axes.flatten()
+
     for i, img in enumerate(generated_images):
         img = img.permute(1, 2, 0)  # Rearrange dimensions to HWC for plotting
         axes[i].imshow(img.cpu().numpy())
         axes[i].axis('off')
 
+    fig.tight_layout()
+
     image_buf = io.BytesIO()
-    plt.savefig(image_buf, format="png")
+    plt.savefig(image_buf, format="png", transparent=True)
     plt.close(fig)
     return image_buf
 

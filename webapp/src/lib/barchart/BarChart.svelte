@@ -36,7 +36,7 @@
         padding={{ top: 0, right: 0, bottom: 20, left: 20 }}
         x={"label"}
         y={"prob"}
-        xScale={scaleBand().paddingInner(0.5).round(true)}
+        xScale={scaleBand().paddingInner(0.3).round(true)}
         xDomain={data.map((c) => {return c.label})}
         yDomain={[0, 1]}
         {data}

@@ -1,5 +1,6 @@
 <script>
     import Interpretability from "./Interpretability.svelte";
+    import Steerability from "./Steerability.svelte";
 </script>
 
 <p class="mt-16 mx-auto text-center text-5xl max-w-3xl">Introducing: Content Bottleneck Generative Models</p>
@@ -34,5 +35,7 @@ Concept Bottleneck Generative Model allows users to:
 <Interpretability/>
 
 <p class="mt-12 mx-auto text-left text-5xl max-w-3xl">Steerability</p>
+
+<Steerability/>
 
 <p class="mt-12 mx-auto text-left text-5xl max-w-3xl">Debugging</p>

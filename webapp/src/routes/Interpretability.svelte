@@ -20,8 +20,6 @@
         images = blob.image;
         concept_probs = blob.data;
     }
-
-    $inspect(concept_probs);
 </script>
 
 <div class="relative mt-12 mx-auto font-extralight max-w-3xl h-130 bg-purple-50 rounded-xl">
@@ -37,5 +35,5 @@
             </div>
         {/key}
     {/if}
-    <button onclick={generate_images} class="absolute bottom-8 right-8 bg-indigo-500 rounded-full px-4 py-3 text-white text-medium">Generate more</button>
+    <button onclick={generate_images} class="absolute bottom-6 right-8 bg-indigo-500 rounded-full px-4 py-3 text-white text-medium duration-400 hover:bg-indigo-600">Generate more</button>
 </div>
