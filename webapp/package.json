@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --host",
 		"build": "vite build",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''"
@@ -17,5 +17,8 @@
 		"svelte": "^5.0.0",
 		"tailwindcss": "^4.0.0",
 		"vite": "^6.0.0"
+	},
+	"dependencies": {
+		"layercake": "^8.4.2"
 	}
 }

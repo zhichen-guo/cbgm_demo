@@ -7,6 +7,8 @@ services:
       - ./api:/api
     ports:
       - 5100:5000
+    environment:
+      - WEBAPP_URL=http://localhost:5173
     stdin_open: true
     tty: true
 
@@ -18,5 +20,7 @@ services:
       - ./webapp:/webapp
     ports:
       - 5173:5173
+    environment:
+      - VITE_API_URL=http://localhost:5100
     stdin_open: true
     tty: true

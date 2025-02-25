@@ -112,7 +112,7 @@ class CBM_plus_Dec(nn.Module):
                 ### 2 get prob given concept
                 if(probs==None):
                     logits =  self.concept_prob_generators[c](context)
-                    prob_gumbel = F.softmax(logits, dim=1)
+                    prob_gumbel = F.softmax(logits)
                 else:
                     logits=probs[c]
                     prob_gumbel=probs[c]
@@ -146,7 +146,7 @@ class CBM_plus_Dec(nn.Module):
 
         fake_data = self.gen(latent)
         if(return_all):
-            return fake_data,all_logits,all_concept_latent,non_concept_latent
+            return fake_data,all_concepts,all_logits,all_concept_latent,non_concept_latent
         else:
             return fake_data
 
@@ -255,19 +255,21 @@ def generate_interpretable_image():
     color_mnist_cb_dec = create_cb_dec()
     color_mnist_cb_dec.eval()
 
-    z = torch.randn(10, 64)
+    z = torch.randn(3, 64)
     
     with torch.no_grad():
-        generated_images, all_logits, all_concept_latent, non_concept_latent = color_mnist_cb_dec(z, return_all=True)
-        probs = F.softmax(all_logits, dim=1)
+        generated_images, all_concepts, all_logits, all_concept_latent, non_concept_latent = color_mnist_cb_dec(z, return_all=True)
+        #probs = F.softmax(all_logits)
     
-    fig, axes = plt.subplots(1, len(generated_images), figsize=(len(generated_images), 2))
+    fig, axes = plt.subplots(1, len(generated_images), figsize=(len(generated_images), 1))
     for i, img in enumerate(generated_images):
         img = img.permute(1, 2, 0)  # Rearrange dimensions to HWC for plotting
         axes[i].imshow(img.cpu().numpy())
         axes[i].axis('off')
 
+    fig.tight_layout()
+
     image_buf = io.BytesIO()
-    plt.savefig(image_buf, format="png")
+    plt.savefig(image_buf, format="png", transparent=True)
     plt.close(fig)
-    return [image_buf, probs]
+    return [image_buf, all_concepts]

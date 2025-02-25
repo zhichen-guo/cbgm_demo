@@ -1,8 +1,18 @@
 from fastapi import FastAPI, Response, BackgroundTasks
 from cbm_dec import generate_steered_image, generate_interpretable_image
+from fastapi.middleware.cors import CORSMiddleware
 import base64
+import os
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[os.environ.get("WEBAPP_URL")],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"]
+)
 
 @app.get("/")
 async def root():
