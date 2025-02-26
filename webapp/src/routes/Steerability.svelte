@@ -1,5 +1,6 @@
 <script>
     import BarChart from "$lib/barchart/BarChart.svelte";
+    import logo from "$lib/assets/guidelabs.png";
     import { onMount } from "svelte";
 
     let images = $state();
@@ -11,6 +12,7 @@
     })
 
     async function generate_images() {
+        images = null;
         const response = await fetch(`${import.meta.env.VITE_API_URL}/steer?number=${number}&color=${color}`, {
             method: 'GET'
         });
@@ -23,10 +25,14 @@
 </script>
 
 <div class="relative mt-12 mx-auto font-extralight max-w-3xl h-130 bg-purple-50 rounded-xl">
-    <div class="grid grid-cols-3 gap-4 p-6">
+    <div class="grid grid-cols-3 gap-4 p-6 h-full">
         <div class="col-span-2">
             {#if images}
                 <img class="w-full object-cover" src={images}/>
+            {:else}
+                <div class="flex h-full items-center justify-center">
+                    <img src={logo} class="w-10 animate-spin"/>
+                </div>
             {/if}
         </div>
         <div>

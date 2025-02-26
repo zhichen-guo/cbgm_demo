@@ -88,7 +88,7 @@ Our mission is to create AI systems that you can trust because you understand ho
 
 <p class="mt-12 mx-auto text-left text-5xl max-w-3xl">Sources</p>
 
-<ol class="list-decimal list-inside text-left text-stone-600 mt-6 mb-10 mx-auto font-extralight max-w-3xl">
+<ol class="list-decimal list-inside text-left text-stone-600 mt-6 mb-16 mx-auto font-extralight max-w-3xl">
     <li><a href="https://www.guidelabs.ai/post/introducing-guide-labs-engineering-interpretable-and-auditable-ai-systems">Guide Labs Blog</a></li>
     <li><a href="https://openreview.net/forum?id=L9U5MJJleF">Concept Bottleneck Generative Models</a></li>
 </ol>
