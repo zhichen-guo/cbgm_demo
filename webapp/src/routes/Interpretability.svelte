@@ -14,7 +14,7 @@
             method: 'GET'
         });
         if (!response.ok) {
-            console.log("ERROR!");
+            console.log("Error generating images!");
         }
         const blob = await response.json();
         images = blob.image;

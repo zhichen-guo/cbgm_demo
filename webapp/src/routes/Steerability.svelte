@@ -15,11 +15,10 @@
             method: 'GET'
         });
         if (!response.ok) {
-            console.log("ERROR!");
+            console.log("Error generating images!");
         }
         const blob = await response.blob();
         images = URL.createObjectURL(blob);
-        console.log(blob.blob);
     }
 </script>
 

@@ -18,15 +18,12 @@
         })
     }
 
-    console.log(concept_prob_pairs);
-
     concept_prob_pairs.sort(function(a, b) {
         return b.prob - a.prob;
     })
 
     const data = concept_prob_pairs.slice(0, 5);
-
-    console.log(data);
+    
     const xKey = 'prob';
     const yKey = 'label';
 </script>
