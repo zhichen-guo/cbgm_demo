@@ -32,7 +32,7 @@ With CBGMs, you can:
 
 <p class="mt-12 mx-auto text-left text-5xl max-w-3xl">Interpretability</p>
 
-<p class="text-left text-stone-600 mt-12 mx-auto font-extralight max-w-3xl">
+<p class="text-left text-stone-600 mt-8 mx-auto font-extralight max-w-3xl">
 Contemporary generative models are largely inscrutable and provide no way to identify the key concepts upon which they are reliant.
 During training, CBGMs learn to associate the features in the training material to specific human-understandable concepts.
 Then, when the model generates new outputs, it can tell you which concepts it used and with what level of confidence.
@@ -49,7 +49,7 @@ We then use the model to generate new images and also show you the top 5 concept
 
 <p class="mt-12 mx-auto text-left text-5xl max-w-3xl">Steerability</p>
 
-<p class="text-left text-stone-600 mt-12 mx-auto font-extralight max-w-3xl">
+<p class="text-left text-stone-600 mt-8 mx-auto font-extralight max-w-3xl">
 CBGMs don’t just tell you which concepts they used - they also let you steer the generation process. 
 By adjusting the concept probabilities, you can guide the model’s output to emphasize specific concepts, giving you control over what the model generates.
 </p>
@@ -65,13 +65,16 @@ This allows us to steer the output toward specific concepts — watch how the im
 
 <p class="mt-12 mx-auto text-left text-5xl max-w-3xl">Debugging</p>
 
-<p class="text-left text-stone-600 mt-12 mx-auto font-extralight max-w-3xl">
+<p class="text-left text-stone-600 mt-8 mx-auto font-extralight max-w-3xl">
 One of the hardest parts of working with traditional generative models is checking if the model has actually learned the right concepts during training. 
 With CBGMs, you can track the model’s accuracy on each individual concept throughout the training process. 
-After training, you can also assess the quality of the model by giving it random samples and looking at the probaility distributions of each concept.
+After training, you can also assess the quality of the model by looking at the probability distribution of each concept in a random samples.
 </p>
 
-<p class="text-left text-stone-600 mt-12 mx-auto font-extralight max-w-3xl">
+
+<p class="mt-12 mx-auto text-left text-5xl max-w-3xl">AI systems engineered for interpretability</p>
+
+<p class="text-left text-stone-600 mt-8 mx-auto font-extralight max-w-3xl">
 By building in an interpretable layer, CBGMs let you see exactly which concepts drive the model’s output. 
 This gives you the power to interpret the model’s outputs, steer its behavior, and easily debug any issues - making AI more transparent, trustworthy, and controllable.
 </p> 
