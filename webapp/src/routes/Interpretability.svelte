@@ -35,5 +35,5 @@
             </div>
         {/key}
     {/if}
-    <button onclick={generate_images} class="absolute bottom-6 right-8 bg-indigo-500 rounded-full px-4 py-3 text-white text-medium duration-400 hover:bg-indigo-600">Generate more</button>
+    <button onclick={generate_images} class="absolute bottom-6 right-8 bg-indigo-500 rounded-full px-4 py-3 text-white text-medium duration-400 hover:bg-indigo-600">Regenerate</button>
 </div>
